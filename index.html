@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <script src="scipt.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>"Atividade 3"</title>
 </head>
 <body>
 
-    <form>
+    <div>
         <label for="valor">Valor</label>
         <input type="text" id="valor" name="valor" required>
         <br><br>
-        <input type="radio" name="opcao" value="pix" checked> PIX
+        <input type="radio" name="opcao" value="pix"> PIX
         <input type="radio" name="opcao" value="cartao"> Cartão de Crédito
         <br><br>
-        <button type="submit">Informar Dados</button>
-    </form>
+        <button onclick="escolha()" type="submit">Informar Dados</button>
+    </div>
     
-    <form>
+    <div id="pix">
         <h1>PIX</h1>
         <label for="cpf">CPF</label>
         <input type="text" id="cpf" name="cpf" required>
         <br><br>
         <button type="submit">Pagar</button>
-    </form>
+        <br>
+        <h3 class="valor"></h3>
+    </div>
 
-    <form>
+    <div id="cartao">
         <h1>CARTÃO DE CRÉDITO</h1>
         <label for="numeroCartao">Número do Cartão</label>
         <input type="text" id="numeroCartao" name="numeroCartao" required>
+        <img src="" style="display: none;" alt="bandeiraCartao" id="bandeira">
         <br><br>
         <label for="nomeTitular">Nome do Titular</label>
         <input type="text" id="nomeTitular" name="nomeTitular" required>
@@ -46,8 +50,11 @@
             <option value="3">3x</option>
             <option value="4">4x</option>
             <option value="5">5x</option>
+        </select>
         <button type="submit">Pagar</button>
-    </form>
+        <br>
+        <h3 class="valor"></h3>
+        </div>
 
 </body>
 </html>
