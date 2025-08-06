@@ -2,13 +2,14 @@
 <html lang="pt-br">
 <head>
     <script src="scipt.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>"Atividade 3"</title>
 </head>
 <body>
 
-    <div>
+    <div class="cartao">
         <label for="valor">Valor</label>
         <input type="text" id="valor" name="valor" required>
         <br><br>
@@ -18,21 +19,23 @@
         <button onclick="escolha()" type="submit">Informar Dados</button>
     </div>
     
-    <div id="pix">
+    <div id="pix" class="cartao">
         <h1>PIX</h1>
         <label for="cpf">CPF</label>
         <input type="text" id="cpf" name="cpf" required>
         <br><br>
-        <button type="submit">Pagar</button>
+        <button onclick="sucessMessage()" type="submit">Pagar</button>
         <br>
-        <h3 class="valor"></h3>
+        <h3 id="valorPix"></h3>
     </div>
 
-    <div id="cartao">
+    <div id="cartao" class="cartao">
         <h1>CARTÃO DE CRÉDITO</h1>
         <label for="numeroCartao">Número do Cartão</label>
-        <input type="text" id="numeroCartao" name="numeroCartao" required>
-        <img src="" style="display: none;" alt="bandeiraCartao" id="bandeira">
+        <input type="text" id="numeroCartao" name="numeroCartao" oninput="colocarBandeira()" required>
+        <img src="" width="40px" id="bandeira">
+        <br>
+        <p id="erro" style="display: none">Numero do cartão inválido</p>
         <br><br>
         <label for="nomeTitular">Nome do Titular</label>
         <input type="text" id="nomeTitular" name="nomeTitular" required>
@@ -44,16 +47,16 @@
         <input type="text" id="validade" name="validade" required>
         <br><br>
         <label for="parcelas">Parcelas</label>
-        <select name="parcelas" required>
+        <select id="quantParcelas" name="parcelas" onchange="atualizarValorCartao()" required>
             <option value="1">1x</option>
             <option value="2">2x</option>
             <option value="3">3x</option>
             <option value="4">4x</option>
             <option value="5">5x</option>
         </select>
-        <button type="submit">Pagar</button>
+        <button onclick="sucessMessage()" type="submit">Pagar</button>
         <br>
-        <h3 class="valor"></h3>
+        <h3 id="valorCard"></h3>
         </div>
 
 </body>
